@@ -1,7 +1,7 @@
 /* ============================================================================
  * Proyecto : ASTRO SPACE - Videojuego de naves para RP2040 (Raspberry Pi Pico)
  * Autor    : Oliver Romero
- * Archivo  : astro-space-asm.ino
+ * Archivo  : Astro-Space-Arm.ino
  * ----------------------------------------------------------------------------
  * Archivo mínimo de arranque: el núcleo Arduino para RP2040 inicializa el
  * microcontrolador (relojes, memoria, .bss/.data) y llama a setup(). Desde
