@@ -17,14 +17,14 @@
 
 <a href="#-autor"><img src="https://img.shields.io/badge/Curso-Arquitectura_de_Computadoras_II-8B5CF6?style=for-the-badge" alt="Arquitectura de Computadoras II"/></a>
 <a href="#-autor"><img src="https://img.shields.io/badge/Autor-Oliver_Romero-EC4899?style=for-the-badge&logo=github&logoColor=white" alt="Autor Oliver Romero"/></a>
-<a href="#-demostración"><img src="https://img.shields.io/badge/Estado-Funcional-16A34A?style=for-the-badge" alt="Estado funcional"/></a>
+<a href="#-cómo-se-juega"><img src="https://img.shields.io/badge/Estado-Funcional-16A34A?style=for-the-badge" alt="Estado funcional"/></a>
 
 <br/><br/>
 
 **ASTRO SPACE** es un videojuego de naves en 2D programado **100 % en ensamblador ARM** para la **Raspberry Pi Pico**.<br/>
 Controla directamente los registros del RP2040 (ADC, GPIO, I2C, Timer y NVIC) **sin SDK, sin API de Arduino y sin librerías gráficas**.
 
-[Demostración](#-demostración) ·
+[Cómo se juega](#-cómo-se-juega) ·
 [Hardware](#-hardware-utilizado) ·
 [Conexiones](#-esquema-de-conexión-electrónica) ·
 [Máquina de estados](#-máquina-de-estados-del-juego) ·
@@ -54,8 +54,7 @@ Controla directamente los registros del RP2040 (ADC, GPIO, I2C, Timer y NVIC) **
 13. [Detalles de implementación](#-detalles-de-implementación)
 14. [Compilación y carga](#-compilación-y-carga)
 15. [Estructura del repositorio](#-estructura-del-repositorio)
-16. [Demostración](#-demostración)
-17. [Autor](#-autor)
+16. [Autor](#-autor)
 
 ---
 
@@ -113,7 +112,7 @@ El jugador controla una nave con un **joystick analógico**. Desde la derecha ll
 | **Código modular (E1)** | Cuatro módulos: `main`, `inputs`, `timer` y `video` | [Arquitectura](#-arquitectura-del-software) |
 | **Pila y AAPCS (E1)** | Se preservan r4–r7 y lr y la pila queda alineada a 8 bytes | [Pila y AAPCS](#-uso-de-la-pila-y-estándar-aapcs) |
 | **Comentarios (E1)** | Cada archivo tiene encabezado y cada subrutina indica parámetros, retorno y registros | Todos los `.S` |
-| **Reporte técnico (E2)** | Mapa de memoria, diagrama de la FSM, conexiones y cálculo de tiempos | Este README + `INFORME.pdf` |
+| **Reporte técnico (E2)** | Mapa de memoria, diagrama de la FSM, conexiones y cálculo de tiempos | Este README (secciones de conexiones, máquina de estados, mapa de memoria y tiempos) |
 
 ---
 
@@ -688,8 +687,6 @@ Astro-Space-Arm/
 ├── inputs.S                # ADC del joystick y botón Z (GPIO)
 ├── timer.S                 # TIMER ALARM1, VTOR, NVIC e ISR (30 Hz)
 ├── video.S                 # I2C0, SSD1306, framebuffer, sprites y fuente 8x8
-├── INFORME.md              # Informe del proyecto (Markdown)
-├── INFORME.pdf             # Informe del proyecto (PDF)
 ├── README.md               # Este documento
 └── assets/
     ├── banner.svg          # Banner del README

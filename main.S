@@ -61,7 +61,7 @@ enemy_height_lfsr_state:      .space 4                /* Estado del LFSR que gen
 .section .text
 .align 2
 
-.global game_main                       /* Visible para astro-space-asm.ino */
+.global game_main                       /* Visible para Astro-Space-Arm.ino */
 
 /* ----------------------------------------------------------------------------
  * Función: game_main
