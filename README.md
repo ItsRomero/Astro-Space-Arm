@@ -68,7 +68,7 @@ El jugador controla una nave con un **joystick analógico**. Desde la derecha ll
 | 🔫 **Láser** | Se dispara solo, avanza 5 px por cuadro y solo hay uno en pantalla a la vez |
 | 👾 **Enemigos** | Son 3, avanzan 2 px por cuadro y reaparecen a una altura pseudoaleatoria |
 | ⭐ **Puntos** | +10 por cada enemigo destruido, hasta un máximo de 999 |
-| ❤️ **Vidas** | Empiezas con 3. Pierdes una si un enemigo te toca o si cruza el borde izquierdo |
+| ❤️ **Vidas** | Empiezas con 3 y pierdes una cada vez que un enemigo choca con tu nave. Los que escapan por la izquierda reaparecen a la derecha sin quitarte vida |
 | 💀 **Fin** | Con 0 vidas aparece **GAME OVER** y el temporizador de físicas se detiene por completo |
 
 ---
@@ -295,7 +295,7 @@ Dentro de `update_game_physics` el orden es siempre el mismo:
 
 1. **Nave:** lee los ejes X y Y, aplica `adc_to_delta` y limita la posición a X ∈ [2, 96] y Y ∈ [12, 55].
 2. **Láser:** si no hay uno activo, dispara desde `(x+8, y+3)`. Si hay uno, lo mueve +5 px y lo desactiva cuando X ≥ 126.
-3. **Enemigos (i = 0..2):** los mueve −2 px y revisa tres casos: si salieron por la izquierda, si los alcanzó el láser o si chocaron con la nave.
+3. **Enemigos (i = 0..2):** los mueve −2 px y revisa tres casos: si salieron por la izquierda (reaparecen a la derecha sin quitar vida), si los alcanzó el láser (+10 puntos) o si chocaron con la nave (−1 vida).
 4. **Fin:** si las vidas llegan a 0, llama a `timer_stop`, cambia a `STATE_GAMEOVER` y dibuja la pantalla final.
 
 ---

@@ -332,11 +332,11 @@ enemy_loop:
     subs r0, r0, #2                     /* Velocidad enemiga: 2 px/tick a la izquierda */
     str r0, [r4, r6]
 
-    /* ¿El enemigo rebasó el borde izquierdo (X <= 0)? -> Pierde 1 vida */
+    /* ¿El enemigo rebasó el borde izquierdo (X <= 0)? -> Reaparece a la derecha.
+     * Escapar NO quita vida: solo los choques con la nave restan vidas. */
     cmp r0, #0
     bgt check_laser_hit                 /* Comparación con signo: X > 0 sigue vivo */
 
-    bl lose_one_life
     bl next_random_y                    /* Nueva altura aleatoria */
     str r0, [r5, r6]
     movs r0, #128
